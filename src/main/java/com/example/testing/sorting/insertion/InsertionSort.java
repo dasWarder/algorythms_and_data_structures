@@ -4,7 +4,7 @@ import com.example.testing.sorting.Sorting;
 
 public class InsertionSort implements Sorting {
     @Override
-    public void sort(long[] arr, int length) {
+    public void sort(long [] arr, int length) {
         for(int i = 1; i < length; i++) {
             long temp = arr[i];
             int j = i;
@@ -13,6 +13,7 @@ public class InsertionSort implements Sorting {
                 arr[j] = arr[j - 1];
                 j--;
             }
+
             arr[j] = temp;
         }
     }
