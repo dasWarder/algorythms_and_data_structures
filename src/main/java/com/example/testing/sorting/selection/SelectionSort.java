@@ -27,6 +27,6 @@ public class SelectionSort implements Sorting {
 
     @Override
     public void sortingName() {
-        System.out.println("Selection strategy");
+        System.out.println("Selection sorting strategy");
     }
 }
