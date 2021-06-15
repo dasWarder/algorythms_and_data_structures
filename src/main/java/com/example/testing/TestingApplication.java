@@ -3,6 +3,7 @@ package com.example.testing;
 import com.example.testing.sorting.Sorting;
 import com.example.testing.sorting.TestArray;
 import com.example.testing.sorting.bubble.BubbleSort;
+import com.example.testing.sorting.insertion.InsertionSort;
 import com.example.testing.sorting.selection.SelectionSort;
 
 
@@ -10,9 +11,9 @@ import com.example.testing.sorting.selection.SelectionSort;
 public class TestingApplication {
 
     public static void main(String[] args) {
-        Sorting bubbleSort = new BubbleSort();
+        Sorting sort = new InsertionSort();
 
-        TestArray testArray = new TestArray(6, bubbleSort);
+        TestArray testArray = new TestArray(5, sort);
 
         testArray.insert(54);
         testArray.insert(23);
@@ -21,11 +22,6 @@ public class TestingApplication {
         testArray.insert(7);
 
         testArray.getSortingStrategyName();
-        testArray.print();
-
-        testArray.setSorting(new SelectionSort());
-        testArray.getSortingStrategyName();
-        testArray.insert(17);
         testArray.print();
     }
 
