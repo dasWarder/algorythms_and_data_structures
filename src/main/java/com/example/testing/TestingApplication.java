@@ -4,6 +4,7 @@ import com.example.testing.sorting.Sorting;
 import com.example.testing.sorting.TestArray;
 import com.example.testing.sorting.bubble.BubbleSort;
 import com.example.testing.sorting.insertion.InsertionSort;
+import com.example.testing.sorting.oddEven.OddEvenSort;
 import com.example.testing.sorting.selection.SelectionSort;
 
 
@@ -11,7 +12,7 @@ import com.example.testing.sorting.selection.SelectionSort;
 public class TestingApplication {
 
     public static void main(String[] args) {
-        Sorting sort = new InsertionSort();
+        Sorting sort = new OddEvenSort();
 
         TestArray testArray = new TestArray(5, sort);
 
