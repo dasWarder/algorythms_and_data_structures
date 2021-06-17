@@ -1,6 +1,6 @@
 package com.example.testing.sorting.oddEven;
 
-import com.example.testing.sorting.Sorting;
+import com.example.testing.sorting.array.Sorting;
 
 public class OddEvenSort implements Sorting {
     @Override

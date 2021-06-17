@@ -1,4 +1,4 @@
-package com.example.testing.sorting;
+package com.example.testing.sorting.array;
 
 public interface Sorting {
 

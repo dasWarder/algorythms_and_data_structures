@@ -1,20 +1,22 @@
 package com.example.testing.sorting.selection;
 
-import com.example.testing.sorting.Sorting;
+import com.example.testing.sorting.array.Sorting;
 
-
+//[3,4,5,1,6,2] --> [1,4,5,3,6,2] --> [1,4,5,2,6,3]
+//[1,4,5,2,6,3] --> [1,2,5,4,6,3] --> [1,2,5,3,6,4]
+//[1,2,5,3,6,4] --> [1,2,3,5,6,4] --> [1,2,3,4,6,5]
+//[1,2,3,4,6,5] --> [1,2,3,4,6,5]
+//[1,2,3,4,6,5] --> [1,2,3,4,5,6]
 public class SelectionSort implements Sorting {
 
     @Override
-    //[1,2,3,4,5,6]
     public void sort(long[] arr, int length) {
-        //[1,2,3,4,5] i = 1
         for(int i = 0; i < length - 1; i++) {
-            //min = 1
+
             int min = i;
-            //[2,3,4,5,6] j = 2
+
             for(int j = i + 1;j < length; j++) {
-                //1 > 2? continuous : min = 2
+
                 if(arr[min] > arr[j]) {
                     min = j;
                 }

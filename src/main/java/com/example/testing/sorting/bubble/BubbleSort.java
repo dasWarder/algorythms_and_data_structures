@@ -1,6 +1,6 @@
 package com.example.testing.sorting.bubble;
 
-import com.example.testing.sorting.Sorting;
+import com.example.testing.sorting.array.Sorting;
 
 
 public class BubbleSort implements Sorting {
