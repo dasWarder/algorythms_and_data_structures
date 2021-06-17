@@ -1,4 +1,4 @@
-package com.example.testing.sorting;
+package com.example.testing.sorting.array;
 
 import com.example.testing.sorting.array.Sorting;
 

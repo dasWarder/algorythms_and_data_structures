@@ -1,13 +1,13 @@
-package com.example.testing.queue;
+package com.example.testing.queue.common;
 
-public class CustomQueue {
+public class CommonQueue {
     private int maxSize;
     private long[] queueArray;
     private int length;
     private int receiveIndex;
     private int insertIndex;
 
-    public CustomQueue(int maxSize) {
+    public CommonQueue(int maxSize) {
         this.maxSize = maxSize;
         queueArray = new long[maxSize];
         length = 0;

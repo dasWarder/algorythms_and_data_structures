@@ -1,6 +1,7 @@
-package com.example.testing.sorting.array;
+package com.example.testing.sorting;
 
-import com.example.testing.sorting.TestArray;
+import com.example.testing.sorting.array.TestArray;
+import com.example.testing.sorting.array.Sorting;
 import com.example.testing.sorting.oddEven.OddEvenSort;
 
 public class MainSort {
@@ -12,7 +13,6 @@ public class MainSort {
 
         testArray.insert(54);
         testArray.insert(23);
-        testArray.insert(57);
         testArray.insert(25);
         testArray.insert(7);
 
