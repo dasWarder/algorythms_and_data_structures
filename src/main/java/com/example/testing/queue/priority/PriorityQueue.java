@@ -1,9 +1,8 @@
 package com.example.testing.queue.priority;
 
-import java.util.Arrays;
-import java.util.Comparator;
+import com.example.testing.queue.CustomQueue;
 
-public class PriorityQueue {
+public class PriorityQueue implements CustomQueue<Long> {
     private int maxSize;
     private long[] priorityQueueArray;
     private int length;
@@ -15,7 +14,8 @@ public class PriorityQueue {
     }
 
 
-    public void insert(long element) {
+    @Override
+    public void push(Long element) {
 
         if (isFull()) {
             throw new IndexOutOfBoundsException("The max size of array was reached");
@@ -33,7 +33,8 @@ public class PriorityQueue {
         }
     }
 
-    public long popRight() {
+    @Override
+    public Long pop() {
 
         long element = priorityQueueArray[--length];
         priorityQueueArray[length] = 0;
@@ -41,13 +42,13 @@ public class PriorityQueue {
         return element;
     }
 
-
-    public long peekRight() {
+    @Override
+    public Long peek() {
 
         return priorityQueueArray[length - 1];
     }
 
-
+    @Override
     public boolean isEmpty() {
 
         return length == 0;

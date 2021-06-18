@@ -1,6 +1,8 @@
 package com.example.testing.stack.simple;
 
-public class CustomStack {
+import com.example.testing.queue.CustomQueue;
+
+public class CustomStack implements CustomQueue<Long> {
     private int maxSize;
     private long[] stackArray;
     private int top;
@@ -11,7 +13,8 @@ public class CustomStack {
         top = -1;
     }
 
-    public void push(long element) {
+    @Override
+    public void push(Long element) {
         if(!isFull()) {
             stackArray[++top] = element;
         } else {
@@ -19,18 +22,21 @@ public class CustomStack {
         }
     }
 
-    public long pop() {
+    @Override
+    public Long pop() {
         long lastElement = stackArray[top--];
 
         return lastElement;
     }
 
-    public long peek() {
+    @Override
+    public Long peek() {
         long lastElement = stackArray[top];
 
         return lastElement;
     }
 
+    @Override
     public boolean isEmpty() {
         return top == -1;
     }

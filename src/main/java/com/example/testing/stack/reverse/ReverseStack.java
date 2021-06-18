@@ -22,7 +22,7 @@ public class ReverseStack {
     private void pushStringLettersToStack() {
 
         for(int i = 0; i < input.length(); i++) {
-            customStack.push(input.charAt(i));
+            customStack.push(Long.valueOf(input.charAt(i)));
         }
     }
 
@@ -31,7 +31,8 @@ public class ReverseStack {
         String output = "";
 
         while(!customStack.isEmpty()) {
-            char element = (char) customStack.pop();
+            long elementPrimitive = customStack.pop();
+            char element = (char) elementPrimitive;
             output += element;
         }
 

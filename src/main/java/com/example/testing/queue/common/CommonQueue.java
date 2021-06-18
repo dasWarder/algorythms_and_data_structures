@@ -1,11 +1,19 @@
 package com.example.testing.queue.common;
 
-public class CommonQueue {
+import com.example.testing.queue.CustomQueue;
+
+public class CommonQueue implements CustomQueue<Long> {
+
     private int maxSize;
+
     private long[] queueArray;
+
     private int length;
+
     private int receiveIndex;
+
     private int insertIndex;
+
 
     public CommonQueue(int maxSize) {
         this.maxSize = maxSize;
@@ -15,10 +23,13 @@ public class CommonQueue {
         insertIndex = -1;
     }
 
-    public void insert(long element) {
+    @Override
+    public void push(Long element) {
 
         if(isFull()) {
+
             throw new IndexOutOfBoundsException("The max size of the queue is reached");
+
         }
 
         if(insertIndex >= maxSize - 1) {
@@ -30,8 +41,8 @@ public class CommonQueue {
         length++;
     }
 
-
-    public long remove() {
+    @Override
+    public Long pop() {
 
         if(isEmpty()) {
 
@@ -51,15 +62,15 @@ public class CommonQueue {
         return elementToDelete;
     }
 
-
-    public long peek() {
+    @Override
+    public Long peek() {
 
         long theEldestElement = queueArray[receiveIndex];
 
         return theEldestElement;
     }
 
-
+    @Override
     public boolean isEmpty() {
 
         return length == 0;

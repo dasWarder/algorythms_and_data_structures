@@ -18,7 +18,7 @@ public class QueueMain {
         for(int i = 1; i <= 5; i++)  {
 
             System.out.println("Element #" + i + " is: " + queue.pop());
-            
+
         }
 
 

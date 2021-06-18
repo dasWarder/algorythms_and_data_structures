@@ -1,8 +1,9 @@
 package com.example.testing.queue.common;
 
 import com.example.testing.list.linkedList.DoublyLinkedList;
+import com.example.testing.queue.CustomQueue;
 
-public class LinkedListBasedQueue<T> {
+public class LinkedListBasedQueue<T> implements CustomQueue<T> {
 
     private DoublyLinkedList<T> linkedList;
 
@@ -13,12 +14,14 @@ public class LinkedListBasedQueue<T> {
         this.length = 0;
     }
 
+    @Override
     public void push(T element) {
 
         linkedList.insertTail(element);
         length++;
     }
 
+    @Override
     public T pop() {
 
         if(!isEmpty()) {
@@ -32,12 +35,14 @@ public class LinkedListBasedQueue<T> {
         return null;
     }
 
+    @Override
     public T peek() {
 
         return linkedList.getHead();
 
     }
 
+    @Override
     public boolean isEmpty() {
 
         return length == 0;
