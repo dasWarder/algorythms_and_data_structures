@@ -146,4 +146,18 @@ public class DoublyLinkedList<T> {
 
         return null;
     }
+
+    public T getHead() {
+
+        return head == null?
+                            null :
+                            head.getValue();
+    }
+
+    public T getTail() {
+
+        return tail == null?
+                            null :
+                            tail.getValue();
+    }
 }

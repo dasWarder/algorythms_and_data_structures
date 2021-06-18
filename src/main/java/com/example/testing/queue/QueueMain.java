@@ -1,17 +1,26 @@
 package com.example.testing.queue;
 
-import com.example.testing.queue.priority.PriorityQueue;
+import com.example.testing.queue.common.LinkedListBasedQueue;
 
 public class QueueMain {
 
     public static void main(String[] args) {
-        PriorityQueue priorityQueue = new PriorityQueue(5);
-        priorityQueue.insert(5);
-        priorityQueue.insert(15);
-        priorityQueue.insert(25);
-        priorityQueue.insert(10);
+        LinkedListBasedQueue<Long> queue = new LinkedListBasedQueue<>();
 
-        System.out.println(priorityQueue.size());
+        queue.push(1L);
+        queue.push(2L);
+        queue.push(3L);
+        queue.push(4L);
+
+        System.out.println("The size of queue: " + queue.size());
+        System.out.println("The peek element: " + queue.peek());
+
+        for(int i = 1; i <= 5; i++)  {
+
+            System.out.println("Element #" + i + " is: " + queue.pop());
+            
+        }
+
 
     }
 }
