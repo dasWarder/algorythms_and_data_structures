@@ -1,37 +1,22 @@
 package com.example.testing.list;
 
-import com.example.testing.list.linkedList.DoublyLinkedList;
-
-import java.util.LinkedList;
+import com.example.testing.list.linkedList.SortedLinkedList;
 
 public class ListMain {
 
     public static void main(String[] args) {
 
-        DoublyLinkedList<Long> linkedList = new DoublyLinkedList<>();
+        SortedLinkedList<Long> sortedList = new SortedLinkedList<>();
 
-        linkedList.insertHead(1L);
-        linkedList.insertHead(2L);
-        linkedList.insertHead(3L);
+        sortedList.insert(25L);
+        sortedList.insert(12L);
+        sortedList.insert(35L);
+        sortedList.insert(15L);
 
-        System.out.println("Print all: ");
-        linkedList.printAll();
+        sortedList.printAll();
 
-        linkedList.insertTail(100L);
-        linkedList.insertTail(101L);
+        sortedList.remove(25L);
 
-        System.out.println("Print all after changing: ");
-        linkedList.printAll();
-
-        System.out.println("Index of element: " + linkedList.indexOf(1L));
-
-        System.out.println("Removed head: " + linkedList.removeHead());
-        linkedList.printAll();
-
-        System.out.println("Removed tail: " + linkedList.removeTail());
-        linkedList.printAll();
-
-
-
+        sortedList.printAll();
     }
 }
