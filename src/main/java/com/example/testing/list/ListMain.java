@@ -13,10 +13,17 @@ public class ListMain {
         sortedList.insert(35L);
         sortedList.insert(15L);
 
+        System.out.println("Get all before changing: ");
         sortedList.printAll();
 
         sortedList.remove(25L);
 
+        System.out.println("Get all after changing: ");
         sortedList.printAll();
+
+        System.out.println("Get head: " + sortedList.getHead());
+        System.out.println("Get tail: " + sortedList.getTail());
+
+
     }
 }

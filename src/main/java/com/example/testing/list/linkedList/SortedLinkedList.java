@@ -75,8 +75,20 @@ public class SortedLinkedList<T extends Comparable<? super T>> {
         }
     }
 
+    public T getHead() {
+        return head.getValue();
+    }
+
+    public T getTail() {
+        return tail.getValue();
+    }
+
     public boolean isEmpty() {
         return length == 0;
+    }
+
+    public int size() {
+        return length;
     }
 
     private void settingNewLinks(Link newLink, Link prev, Link next) {
