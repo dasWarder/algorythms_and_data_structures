@@ -24,6 +24,8 @@ public class ListMain {
         System.out.println("Get head: " + sortedList.getHead());
         System.out.println("Get tail: " + sortedList.getTail());
 
+        System.out.println("Get index of element: " + sortedList.indexOf(35L));
+
 
     }
 }

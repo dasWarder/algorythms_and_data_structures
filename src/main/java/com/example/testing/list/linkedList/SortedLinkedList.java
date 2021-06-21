@@ -75,6 +75,22 @@ public class SortedLinkedList<T extends Comparable<? super T>> {
         }
     }
 
+    public int indexOf(T element) {
+
+        int counter = 0;
+
+        for(Link temp = head; temp != null; temp = temp.getNext()) {
+
+            if(temp.getValue().equals(element)) {
+                return counter;
+            }
+
+            counter++;
+        }
+
+        return -1;
+    }
+
     public T getHead() {
         return head.getValue();
     }
