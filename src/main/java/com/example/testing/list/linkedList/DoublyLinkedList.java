@@ -1,26 +1,9 @@
 package com.example.testing.list.linkedList;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.example.testing.list.linkedList.link.Link;
 
 public class DoublyLinkedList<T> {
 
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    private class Link<T> {
-
-        private T value;
-
-        private Link<T> prev;
-
-        private Link<T> next;
-
-        public Link(T value) {
-            this.value = value;
-        }
-    }
 
     private Link<T> head;
 
@@ -191,6 +174,14 @@ public class DoublyLinkedList<T> {
         return tail == null?
                             null :
                             tail.getValue();
+    }
+
+    public Link<T> getFirst() {
+        return head;
+    }
+
+    public Link<T> getLast() {
+        return tail;
     }
 
 
