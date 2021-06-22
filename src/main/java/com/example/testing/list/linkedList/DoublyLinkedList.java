@@ -49,6 +49,8 @@ public class DoublyLinkedList<T> {
 
         if (isEmpty()) {
             tail = newHead;
+        } else {
+            head.setPrev(newHead);
         }
 
         head = newHead;
@@ -103,15 +105,20 @@ public class DoublyLinkedList<T> {
 
     public void printAll() {
 
-        Link<T> tempLink = head;
+        for(Link<T> temp = head; temp != null; temp = temp.getNext()){
 
-        while(tempLink != null) {
+            System.out.println(temp.getValue());
 
-            System.out.println(tempLink.getValue());
-
-            tempLink = tempLink.getNext();
         }
 
+    }
+
+    public void printAllBackward() {
+
+        for(Link<T> temp = tail; temp != null; temp = temp.getPrev()) {
+
+            System.out.println(temp.getValue());
+        }
     }
 
     public boolean isEmpty() {
