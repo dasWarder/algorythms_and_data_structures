@@ -64,6 +64,8 @@ public class SortedLinkedList<T extends Comparable<? super T>> {
         prev.setNext(temp.getNext());
         temp.setValue(null);
         temp.setNext(null);
+
+        length--;
     }
 
     public void printAll() {

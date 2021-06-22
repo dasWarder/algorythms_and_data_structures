@@ -1,31 +1,45 @@
 package com.example.testing.list;
 
-import com.example.testing.list.linkedList.SortedLinkedList;
+import com.example.testing.list.linkedList.SortInsertionList;
+
+import java.util.Arrays;
 
 public class ListMain {
 
     public static void main(String[] args) {
 
-        SortedLinkedList<Long> sortedList = new SortedLinkedList<>();
+        SortInsertionList<Long> sortedList = new SortInsertionList<>();
 
         sortedList.insert(25L);
-        sortedList.insert(12L);
-        sortedList.insert(35L);
-        sortedList.insert(15L);
+        sortedList.insert(13L);
+        sortedList.insert(44L);
+        sortedList.insert(7L);
+        sortedList.insert(82L);
 
-        System.out.println("Get all before changing: ");
         sortedList.printAll();
 
-        sortedList.remove(25L);
+        System.out.println("Get indexOf: " + sortedList.indexOf(25L));
+        System.out.println("<---------------------------------------->");
 
-        System.out.println("Get all after changing: ");
-        sortedList.printAll();
+        Long[] arr = {24L, 25L, 17L, 88L, 19L, 2L};
 
-        System.out.println("Get head: " + sortedList.getHead());
-        System.out.println("Get tail: " + sortedList.getTail());
+        System.out.println(
+                            Arrays.toString(arr));
 
-        System.out.println("Get index of element: " + sortedList.indexOf(35L));
+        SortInsertionList<Long> list = new SortInsertionList<>(arr);
+        System.out.println("<---------------------------------------->");
 
+        list.printAll();
+
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = list.remove();
+        }
+
+        list.printAll();
+
+        System.out.println("<---------------------------------------->");
+        System.out.println(
+                            Arrays.toString(arr));
 
     }
 }
