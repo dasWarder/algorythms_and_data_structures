@@ -113,9 +113,15 @@ public class DoublyLinkedList<T> {
 
         Link<T> prevLink = tail.getPrev();
 
+
+
         T removedValue = validationAndNullingLinks(tail);
 
-        prevLink.setNext(null);
+        if(prevLink != null) {
+
+            prevLink.setNext(null);
+        }
+
         tail = prevLink;
 
         length--;
