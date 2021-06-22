@@ -48,9 +48,13 @@ public class DoublyLinkedList<T> {
         newHead.setNext(head);
 
         if (isEmpty()) {
+
             tail = newHead;
+
         } else {
+
             head.setPrev(newHead);
+
         }
 
         head = newHead;
@@ -77,11 +81,27 @@ public class DoublyLinkedList<T> {
         length++;
     }
 
+    public void insertAfter(T element, T elementToInsertAfter) {
+
+
+        Link<T> next = head;
+
+        while (next != null &&
+                                !next.getValue().equals(elementToInsertAfter)) {
+            next = next.getNext();
+        }
+
+        Link<T> insertLink = new Link<>(element);
+
+        settingUpLinksForInserting(next, insertLink);
+    }
+
     public T removeHead() {
 
-        Link<T> nextLink = head.getNext();
+        Link<T> temp = head;
+        Link<T> nextLink = temp.getNext();
 
-        T removedValue = validationAndNullingLinks(nextLink, head);
+        T removedValue = validationAndNullingLinks(temp);
         head = nextLink;
 
         length--;
@@ -93,7 +113,7 @@ public class DoublyLinkedList<T> {
 
         Link<T> prevLink = tail.getPrev();
 
-        T removedValue = validationAndNullingLinks(prevLink, tail);
+        T removedValue = validationAndNullingLinks(tail);
 
         prevLink.setNext(null);
         tail = prevLink;
@@ -103,22 +123,44 @@ public class DoublyLinkedList<T> {
         return removedValue;
     }
 
-    public void printAll() {
+    public T remove(T element) {
 
-        for(Link<T> temp = head; temp != null; temp = temp.getNext()){
+        Link<T> prev = null;
+        Link<T> temp = head;
 
-            System.out.println(temp.getValue());
-
+        while (temp != null &&
+                                !temp.getValue().equals(element)) {
+            prev = temp;
+            temp = temp.getNext();
         }
 
+        Link<T> nextAfterCurrent = temp.getNext();
+        length--;
+
+        if (prev == null) {
+
+            return removeHead();
+
+        } else if (nextAfterCurrent == null) {
+
+            return removeTail();
+
+        } else {
+
+            prev.setNext(nextAfterCurrent);
+            nextAfterCurrent.setPrev(prev);
+            T value = validationAndNullingLinks(temp);
+
+            return value;
+        }
+    }
+
+    public void printAll() {
+        print(head);
     }
 
     public void printAllBackward() {
-
-        for(Link<T> temp = tail; temp != null; temp = temp.getPrev()) {
-
-            System.out.println(temp.getValue());
-        }
+        print(tail);
     }
 
     public boolean isEmpty() {
@@ -130,7 +172,24 @@ public class DoublyLinkedList<T> {
         return length;
     }
 
-    private T validationAndNullingLinks(Link<T> newLink, Link oldLink) {
+
+    public T getHead() {
+
+        return head == null?
+                            null :
+                            head.getValue();
+    }
+
+    public T getTail() {
+
+        return tail == null?
+                            null :
+                            tail.getValue();
+    }
+
+
+
+    private T validationAndNullingLinks(Link oldLink) {
 
         if(!isEmpty()) {
 
@@ -154,17 +213,52 @@ public class DoublyLinkedList<T> {
         return null;
     }
 
-    public T getHead() {
+    private void settingUpLinksForInserting(Link<T> next, Link<T> insertLink) {
 
-        return head == null?
-                            null :
-                            head.getValue();
+        if(next == tail) {
+
+            insertLink.setNext(null);
+            tail = insertLink;
+
+        } else {
+
+            Link<T> nextAfterCurrent = next.getNext();
+            insertLink.setNext(nextAfterCurrent);
+            nextAfterCurrent.setPrev(insertLink);
+
+        }
+
+        insertLink.setPrev(next);
+        next.setNext(insertLink);
     }
 
-    public T getTail() {
+    private void print(Link<T> direction) {
 
-        return tail == null?
-                            null :
-                            tail.getValue();
+        Link temp = direction;
+
+        while (temp != null &&
+                              temp.getValue() != null) {
+
+            System.out.println(temp.getValue());
+
+            Link nextElement = setNextElementByDirection(temp, direction);
+
+            temp = nextElement;
+        }
+    }
+
+    private Link<T> setNextElementByDirection(Link<T> temp, Link<T> direction) {
+
+        if(direction == tail) {
+
+            temp = temp.getPrev();
+
+        } else if (direction == head) {
+
+            temp = temp.getNext();
+
+        }
+
+        return temp;
     }
 }
