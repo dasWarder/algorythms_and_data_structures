@@ -1,5 +1,6 @@
 package com.example.testing.list;
 
+import com.example.testing.iterator.ListIterator;
 import com.example.testing.list.linkedList.DoublyLinkedList;
 
 public class ListMain {
@@ -15,16 +16,15 @@ public class ListMain {
 
         System.out.println("<---------------------------------------->");
 
-        list.insertAfter(12L, 4L);
+        ListIterator<Long, DoublyLinkedList<Long>> iterator = list.getListIterator();
 
-        list.printAll();
+        ListIterator<Long, DoublyLinkedList<Long>> secondIterator = list.getListIterator();
 
-        System.out.println("<---------------------------------------->");
 
-        System.out.println("Removed: " + list.remove(4L));
+        iterator.nextLink();
+        System.out.println(iterator.getCurrent());
 
-        list.printAllBackward();
-
+        System.out.println(secondIterator.getCurrent());
 
 
     }

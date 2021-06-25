@@ -1,12 +1,15 @@
 package com.example.testing.list.linkedList;
 
+import com.example.testing.iterator.ListIterator;
 import com.example.testing.list.linkedList.link.Link;
+import lombok.Setter;
 
 public class DoublyLinkedList<T> {
 
-
+    @Setter
     private Link<T> head;
 
+    @Setter
     private Link<T> tail;
 
     private int length;
@@ -257,5 +260,11 @@ public class DoublyLinkedList<T> {
         }
 
         return temp;
+    }
+
+    public ListIterator<T, DoublyLinkedList<T>> getListIterator() {
+        ListIterator<T, DoublyLinkedList<T>> litIterator = new ListIterator<>(this);
+
+        return litIterator;
     }
 }
