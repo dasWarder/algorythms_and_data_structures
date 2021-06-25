@@ -1,7 +1,10 @@
 package com.example.testing.list;
 
+import com.example.testing.iterator.CustomIterator;
 import com.example.testing.iterator.ListIterator;
 import com.example.testing.list.linkedList.DoublyLinkedList;
+
+import java.util.Iterator;
 
 public class ListMain {
 
@@ -16,16 +19,21 @@ public class ListMain {
 
         System.out.println("<---------------------------------------->");
 
-        ListIterator<Long, DoublyLinkedList<Long>> iterator = list.getListIterator();
+        CustomIterator<Long> listIterator = list.getListIterator();
 
-        ListIterator<Long, DoublyLinkedList<Long>> secondIterator = list.getListIterator();
+        CustomIterator<Long> secondIterator = list.getListIterator();
 
 
-        iterator.nextLink();
-        System.out.println(iterator.getCurrent());
+        if (listIterator.hasNext()) {
+            System.out.println(listIterator.next());
+        }
 
-        System.out.println(secondIterator.getCurrent());
+        System.out.println("<---------------------------------------->");
 
+        while (secondIterator.hasNext()) {
+
+            System.out.println(secondIterator.next());
+        }
 
     }
 }
