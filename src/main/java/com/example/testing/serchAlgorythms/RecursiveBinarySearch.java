@@ -14,10 +14,13 @@ public class RecursiveBinarySearch {
     }
 
     private static int doRecursiveBinarySearch(int element, int low, int height) {
+
         int mid = (low + height) / 2;
 
         if(arr[mid] == element) {
+
             return mid;
+
         }
 
         height = arr[mid] > element? mid - 1 : height;

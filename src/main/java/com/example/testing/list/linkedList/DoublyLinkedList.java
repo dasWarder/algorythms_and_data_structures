@@ -2,7 +2,6 @@ package com.example.testing.list.linkedList;
 
 import com.example.testing.iterator.CustomIterator;
 import com.example.testing.iterator.CustomListIterator;
-import com.example.testing.iterator.ListIterator;
 import com.example.testing.list.linkedList.link.Link;
 import lombok.Setter;
 
