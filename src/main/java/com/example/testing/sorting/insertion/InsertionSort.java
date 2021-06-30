@@ -8,8 +8,10 @@ import com.example.testing.sorting.array.Sorting;
 //[2,3,4,5,1,6] --> i = 4, v = 1 --> 1 < 5 --> [2,3,4,5,5,6] --> 1 < 4 --> [2,3,4,4,5,6] --> 1 < 3 --> [2,3,3,4,5,6]
 // --> [2,2,3,4,5,6] --> [1,2,3,4,5,6]
 public class InsertionSort implements Sorting {
+
     @Override
     public void sort(long [] arr, int length) {
+
         for(int i = 1; i < length; i++) {
             long temp = arr[i];
             int j = i;

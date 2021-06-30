@@ -2,7 +2,9 @@ package com.example.testing.sorting.bubble;
 
 import com.example.testing.sorting.array.Sorting;
 
-
+/*
+[2,4,5,8,1,3] -> [2,4,5,1,3,8] -> [2,4,1,3,5],8 -> [2,1,3,4],5,8 -> [1,2,3],4,5,8 -> [1,2],3,4,5,8 -> [1],2,3,4,5,8
+ */
 public class BubbleSort implements Sorting {
 
     @Override
