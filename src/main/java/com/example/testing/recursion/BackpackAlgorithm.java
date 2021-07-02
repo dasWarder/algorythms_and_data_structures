@@ -1,5 +1,10 @@
 package com.example.testing.recursion;
 
+
+/*
+The main logic of this task is finding not an optimal solution, but an exact one, when there is possibilities to find a combination
+of numbers that will be provide in sum right weight
+ */
 public class BackpackAlgorithm {
 
     private static int start = 0;
@@ -34,7 +39,7 @@ public class BackpackAlgorithm {
         return branch == 0? find(backpack, weight, sum, index + 1) : branch;
     }
 
-    
+
     private static int recursionFind(int[] backpack, int weight, int sum, int index) {
 
         if(sum == weight) {
