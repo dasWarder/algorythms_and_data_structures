@@ -14,31 +14,25 @@ public class ShellsSort implements Sorting {
 
         int h = 1;
 
-        while(h <= length/3) {
+        while( h < length / 3) {
             h = h * 3 + 1;
         }
-        //12,2,19,4,7,9,10,11,22,1
-        while(h > 0) {
 
-            for(int outer = h; outer < length; outer++) {
+        for(int i = h; i < arr.length; i++) {
+            long temp = arr[i];
+            int j = i;
 
-                long temp = arr[outer];
-                int inner = outer;
+            while(j >= h && arr[j - h] >= temp) {
 
-                while(inner > h - 1 && arr[inner - h] >= temp) {
-
-                    arr[inner] = arr[inner - h];
-                    inner -= h;
-                }
-
-                arr[inner] = temp;
+                arr[j] = arr[j - h];
+                j -= h;
             }
 
-            h = (h - 1) / 3;
+            arr[j] = temp;
         }
 
+        h = (h - 1) / 3;
     }
-
 
 
 
@@ -46,4 +40,8 @@ public class ShellsSort implements Sorting {
     public void sortingName() {
         System.out.println("Shell's sorting strategy");
     }
+
+
+
+
 }
