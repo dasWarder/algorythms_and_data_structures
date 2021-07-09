@@ -1,6 +1,6 @@
 package com.example.testing.sorting.partition;
 
-import static com.example.testing.sorting.partition.Partition.swap;
+import static com.example.testing.sorting.quick.Util.swap;
 
 public class OptimalPartition {
 

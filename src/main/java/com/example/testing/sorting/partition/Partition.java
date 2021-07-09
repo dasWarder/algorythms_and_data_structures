@@ -1,5 +1,7 @@
 package com.example.testing.sorting.partition;
 
+import static com.example.testing.sorting.quick.Util.swap;
+
 public class Partition {
 
     public int parting(long[] arr, int left, int right) {
@@ -28,15 +30,5 @@ public class Partition {
         swap(arr, ++leftPtr, right);
 
         return leftPtr;
-    }
-
-    public static void swap(long[] arr, int inx1, int inx2) {
-
-        long temp = arr[inx1];
-
-        arr[inx1] = arr[inx2];
-
-        arr[inx2] = temp;
-
     }
 }
