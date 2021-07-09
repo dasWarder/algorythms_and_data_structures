@@ -16,8 +16,10 @@ public class SimpleQuickSort implements Sorting {
     private void quickSortRecursion(long[] arr, int left, int right) {
 
         if(right - left <= 0) {
+
             return;
         } else {
+
             int position = partition.parting(arr, left, right);
             quickSortRecursion(arr, left, position - 1);
             quickSortRecursion(arr, position + 1, right);

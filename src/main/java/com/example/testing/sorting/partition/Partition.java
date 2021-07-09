@@ -10,7 +10,7 @@ public class Partition {
         return result;
     }
 
-    private int partition(long[] arr, int left, int right) {
+    protected int partition(long[] arr, int left, int right) {
 
         long pivot = arr[right];
         int leftPtr = left - 1;
@@ -30,7 +30,7 @@ public class Partition {
         return leftPtr;
     }
 
-    private void swap(long[] arr, int inx1, int inx2) {
+    public static void swap(long[] arr, int inx1, int inx2) {
 
         long temp = arr[inx1];
 
