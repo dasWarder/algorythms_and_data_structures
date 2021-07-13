@@ -3,6 +3,8 @@ package com.example.testing.sorting.quick;
 import com.example.testing.sorting.array.Sorting;
 import com.example.testing.sorting.partition.OptimalPartition;
 
+import static com.example.testing.sorting.quick.Util.findMedianOfThree;
+
 public class OptimalQuickSortWithManualInsertSort implements Sorting {
 
     private OptimalPartition partition = new OptimalPartition();
@@ -24,7 +26,7 @@ public class OptimalQuickSortWithManualInsertSort implements Sorting {
 
         } else {
 
-            long median = Util.findMedianOfThree(arr, left, right);
+            long median = findMedianOfThree(arr, left, right);
             int part = partition.parting(arr, left, right, median);
             recQuickSort(arr, left, part - 1);
             recQuickSort(arr, part + 1, right);
@@ -34,6 +36,6 @@ public class OptimalQuickSortWithManualInsertSort implements Sorting {
 
     @Override
     public void sortingName() {
-
+        System.out.println("Quick sort strategy");
     }
 }
