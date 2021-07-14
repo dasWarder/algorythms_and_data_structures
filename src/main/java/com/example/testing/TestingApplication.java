@@ -1,31 +1,21 @@
 package com.example.testing;
 
 
-import com.example.testing.sorting.array.Sorting;
-import com.example.testing.sorting.array.TestArray;
-import com.example.testing.sorting.quick.SimpleQuickSort;
+import com.example.testing.tree.SimpleBinaryTree;
 
 public class TestingApplication {
 
     public static void main(String[] args) {
-            Sorting sorting = new SimpleQuickSort();
-        TestArray array = new TestArray(10, sorting);
-        //long[] arr = new long[] {5,2,4,1,3,12,19,9,11,7};
-        array.insert(5);
-        array.insert(2);
-        array.insert(4);
-        array.insert(1);
-        array.insert(3);
-        array.insert(12);
-        array.insert(19);
-        array.insert(9);
-        array.insert(11);
-        array.insert(7);
+        SimpleBinaryTree<Long> tree = new SimpleBinaryTree<>();
 
-        array.sort();
+        tree.insert(12L);
+        tree.insert(22L);
+        tree.insert(1L);
+        tree.insert(19L);
+        tree.insert(3L);
 
-        array.print();
 
+        System.out.println(tree.find(3L));
     }
 
 };
