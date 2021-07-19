@@ -6,5 +6,5 @@ public interface BinaryTree<T> {
 
     void insert(T data);
 
-    void delete(T data);
+    boolean delete(T data);
 }
