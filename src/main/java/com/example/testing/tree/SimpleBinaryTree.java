@@ -8,35 +8,20 @@ public class SimpleBinaryTree<T extends Comparable<T>> implements BinaryTree<T> 
 
     private TreeMap map = new TreeMap();
 
+    private TreeTraversal<T> treeTraversal;
+
+    public SimpleBinaryTree(TreeTraversal<T> treeTraversal) {
+        this.treeTraversal = treeTraversal;
+    }
+
     @Override
     public boolean find(T key) {
 
-        Node<T> temp = root;
-        int compareRes = 0;
+        boolean elementFound = recursionFindElement(key, root);
 
-        while(temp != null) {
-
-            compareRes = temp.getData().compareTo(key);
-
-            if(compareRes == 0) {
-
-                return true;
-
-            }
-
-            if(compareRes >= 0 && temp.getLeftNode() != null) {
-
-                temp = temp.getLeftNode();
-
-            } else if (compareRes < 0 && temp.getRightNode() != null) {
-
-                temp = temp.getRightNode();
-
-            }
-        }
-
-        return false;
+        return elementFound;
     }
+
 
     @Override
     public void insert(T data) {
@@ -69,6 +54,27 @@ public class SimpleBinaryTree<T extends Comparable<T>> implements BinaryTree<T> 
     @Override
     public void delete(T data) {
 
+    }
+
+    public void printAll() {
+
+        treeTraversal.treeTraversal(root);
+        
+    }
+
+
+    private boolean recursionFindElement(T key, Node<T> node) {
+
+        if(node == null) {
+            return false;
+        }
+
+        if (node.getData().compareTo(key) == 0) {
+            return true;
+        }
+
+
+        return recursionFindElement(key, node.getLeftNode()) | recursionFindElement(key, node.getRightNode());
     }
 
     private Node<T> getLastNode(T data) {
