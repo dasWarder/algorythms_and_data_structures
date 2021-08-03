@@ -1,12 +1,12 @@
 package com.example.testing.hashing;
 
-public interface Hashable {
+public interface Hashable<T> {
 
-    void insert(Integer element);
+    void insert(T element);
 
-    boolean find(Integer element);
+    boolean find(T element);
 
-    void delete(Integer element);
+    void delete(T element);
 
     void printTable();
 }
