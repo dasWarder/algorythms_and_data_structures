@@ -1,54 +1,25 @@
 package com.example.testing;
 
 
-import com.example.testing.heap.Heap;
+import com.example.testing.graph.SimpleGraph;
 
 public class TestingApplication {
 
+
     public static void main(String[] args) {
+        SimpleGraph graph = new SimpleGraph(12);
+        graph.addVertex("Pechory");
+        graph.addVertex("Pskov");
+        graph.addVertex("St Petersburg");
+        graph.addVertex("Pustoshka");
 
-        Heap<Integer> heap = new Heap<>(6);
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 2);
+        graph.addEdge(1, 3);
 
-        heap.insert(5);
-        heap.insert(32);
-        heap.insert(12);
-        heap.insert(2);
-        heap.insert(45);
-        heap.insert(4);
-
-        heap.print();
+        graph.displayAllEdgesForVertex(3);
     }
 
-    public static int myAtoi(String s) {
-
-        String withoutSpace = s.trim();
-
-
-        int res = 0;
-
-        res = withoutSpace.matches("^-.+$")? -1 : 1;
-
-        String resultString = withoutSpace;
-        boolean withWordsInTheEnd = withoutSpace.matches("^[-+]?[0-9]+(.+)?$");
-
-        if(withWordsInTheEnd) {
-            resultString = (withoutSpace.startsWith("-") || withoutSpace.startsWith("+"))?
-                    withoutSpace.split("\\D")[1] :
-                    withoutSpace.split("\\D")[0];
-        } else {
-            return 0;
-        }
-
-
-        try {
-            res *= Integer.parseInt(resultString);
-        } catch(Exception e) {
-            res = res > 0? Integer.MAX_VALUE : Integer.MIN_VALUE;
-
-        } finally {
-            return res;
-        }
-    }
 
 };
 
