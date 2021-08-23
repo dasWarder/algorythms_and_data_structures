@@ -1,5 +1,10 @@
 package com.example.testing.graph;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.concurrent.ArrayBlockingQueue;
+
 public class SimpleGraph {
     private int maxVertex = 16;
     private Vertex[] vertexList;
@@ -53,35 +58,65 @@ public class SimpleGraph {
         }
     }
 
-    public boolean findWayFromTo(int start, int end) {
+    public void deepFind() {
 
-        if(start >= nVertex || end >= nVertex) {
-            System.out.println("There is no element like this!");
-            return false;
+        LinkedList<Integer> stack = new LinkedList();
+
+        vertexList[0].setVisited(true);
+        displayVertex(0);
+        stack.push(0);
+
+        while(!stack.isEmpty()) {
+
+            int v = findUnvisitedVertex(stack.peek());
+            if(v == -1) {
+                stack.pop();
+            } else {
+                vertexList[v].setVisited(true);
+                displayVertex(v);
+                stack.push(v);
+            }
         }
 
-        System.out.println("Start: " + vertexList[start]);
+        for(int j = 0; j < nVertex; j++) {
+            vertexList[j].setVisited(false);
+        }
 
-        int[] startConnections = adjMtx[start];
-        int[] endConnections = adjMtx[end];
+    }
 
-        for(int i = 0; i < startConnections.length; i++) {
+    public void breadthFind() {
+        Queue<Integer> queue = new ArrayBlockingQueue<Integer>(nVertex);
 
-            if(startConnections[i] != 0) {
+        vertexList[0].setVisited(true);
+        displayVertex(0);
+        queue.add(0);
+        int vertex;
 
-                if(startConnections[end] != 0) {
-                    return true;
-                }
+        while(!queue.isEmpty()) {
 
-                int ptr = 0;
+            int prevVertex = queue.remove();
 
+            while((vertex = findUnvisitedVertex(prevVertex)) != -1) {
 
-
+                vertexList[vertex].setVisited(true);
+                displayVertex(vertex);
+                queue.add(vertex);
             }
+        }
+
+        for(int i = 0; i < nVertex; i++) {
+            vertexList[i].setVisited(false);
         }
     }
 
-    private int findConnection() {
+    private int findUnvisitedVertex(int v) {
 
+        for(int i = 0; i < nVertex; i++) {
+            if(adjMtx[v][i] == 1 && vertexList[i].isVisited() == false) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 }

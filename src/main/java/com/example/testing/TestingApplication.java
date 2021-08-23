@@ -17,7 +17,7 @@ public class TestingApplication {
         graph.addEdge(1, 2);
         graph.addEdge(1, 3);
 
-        graph.displayAllEdgesForVertex(3);
+        graph.breadthFind();
     }
 
 
